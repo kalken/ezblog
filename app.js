@@ -226,6 +226,7 @@ async function loadPost(slug) {
       </article>
       <div id="giscus-container"></div>
     `;
+    document.title = post.title;
     loadGiscus();
   } catch (e) {
     contentEl.innerHTML = `<p id="error">Failed to load post: ${e.message}</p>`;
