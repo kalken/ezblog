@@ -39,3 +39,7 @@ CSS custom properties on `:root` define the dark theme by default. Light theme o
 ### Fonts
 
 Local woff2 files in `fonts/` — no external font requests. Inter (UI/headings) and Lora (body) are variable fonts, one file per style covers the full weight range.
+
+### Cache busting
+
+`index.html` references `app.js` and `style.css` with a `?v=N` query string. GitHub Pages caches JS/CSS for up to 10 minutes, so **bump the version number in `index.html` whenever either file changes** before committing.
