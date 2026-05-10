@@ -1,13 +1,14 @@
 // Theme toggle
+const root = document.documentElement;
+
+function effectiveTheme() {
+  return root.getAttribute('data-theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+}
+
 (function () {
-  const root = document.documentElement;
   const saved = localStorage.getItem('theme');
   if (saved) root.setAttribute('data-theme', saved);
-
-  function effectiveTheme() {
-    return root.getAttribute('data-theme') ||
-      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  }
 
   function updateButton(btn) {
     const isDark = effectiveTheme() === 'dark';
@@ -23,6 +24,13 @@
       root.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
       updateButton(btn);
+      const iframe = document.querySelector('iframe.giscus-frame');
+      if (iframe) {
+        iframe.contentWindow.postMessage(
+          { giscus: { setConfig: { theme: next } } },
+          'https://giscus.app'
+        );
+      }
     });
   });
 })();
@@ -150,6 +158,28 @@ function formatDate(iso) {
   });
 }
 
+function loadGiscus() {
+  const container = document.getElementById('giscus-container');
+  if (!container) return;
+  const theme = effectiveTheme() === 'dark' ? 'dark' : 'light';
+  const script = document.createElement('script');
+  script.src = 'https://giscus.app/client.js';
+  script.setAttribute('data-repo', 'kalken/ezblog');
+  script.setAttribute('data-repo-id', 'R_kgDOSZbDbw');
+  script.setAttribute('data-category', 'General');
+  script.setAttribute('data-category-id', 'DIC_kwDOSZbDb84C8tz4');
+  script.setAttribute('data-mapping', 'title');
+  script.setAttribute('data-strict', '0');
+  script.setAttribute('data-reactions-enabled', '1');
+  script.setAttribute('data-emit-metadata', '0');
+  script.setAttribute('data-input-position', 'bottom');
+  script.setAttribute('data-theme', theme);
+  script.setAttribute('data-lang', 'en');
+  script.crossOrigin = 'anonymous';
+  script.async = true;
+  container.appendChild(script);
+}
+
 // State
 let manifest = [];
 let currentSlug = null;
@@ -194,7 +224,9 @@ async function loadPost(slug) {
         </div>
         <div class="post-body">${parseMarkdown(md)}</div>
       </article>
+      <div id="giscus-container"></div>
     `;
+    loadGiscus();
   } catch (e) {
     contentEl.innerHTML = `<p id="error">Failed to load post: ${e.message}</p>`;
   }
