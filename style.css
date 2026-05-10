@@ -314,7 +314,7 @@ header {
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.03em;
-  color: var(--text-muted);
+  color: var(--text);
   margin-bottom: 0.875rem;
 }
 
