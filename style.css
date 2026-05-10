@@ -166,8 +166,26 @@ header {
   color: var(--accent-hover);
 }
 
-#theme-toggle {
+#github-link {
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+  transition: color 0.12s;
+  margin-right: 0.75rem;
+}
+
+#github-link:hover {
+  color: var(--text);
+}
+
+#github-link svg {
+  width: 1.125rem;
+  height: 1.125rem;
+  fill: currentColor;
+}
+
+#theme-toggle {
   background: none;
   border: 1px solid var(--border);
   color: var(--text-muted);
