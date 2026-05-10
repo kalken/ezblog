@@ -159,6 +159,7 @@ function formatDate(iso) {
 }
 
 function loadGiscus() {
+  if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
   const container = document.getElementById('giscus-container');
   if (!container) return;
   const theme = effectiveTheme() === 'dark' ? 'dark' : 'light';
