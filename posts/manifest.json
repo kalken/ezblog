@@ -1,5 +1,10 @@
 [
   {
+    "slug": "ezconfweb",
+    "title": "ezconfweb — a GUI for NixOS configuration",
+    "date": "2026-05-11"
+  },
+  {
     "slug": "hello-world",
     "title": "Hello, World",
     "date": "2026-05-09"
