@@ -1,5 +1,3 @@
-# ezconf — a GUI for NixOS configuration
-
 NixOS is powerful but its configuration format can be a barrier: a deeply nested `.nix` file with thousands of possible options, unfamiliar syntax, and no built-in UI. [ezconf](https://github.com/kalken/ezconf) is a small web app that turns that file into a browsable, searchable, autocompleting editor — without a need for a build system or a bundler.
 
 ![ezconf editor showing networking options with inline documentation](images/ezconf/network-manager.png)
