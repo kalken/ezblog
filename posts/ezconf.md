@@ -1,6 +1,6 @@
 NixOS is powerful but its configuration format can be a barrier: a deeply nested `.nix` file with thousands of possible options, unfamiliar syntax, and no built-in UI. [ezconf](https://github.com/kalken/ezconf) is a small web app that turns that file into a browsable, searchable, autocompleting editor — without a need for a build system or a bundler.
 
-![ezconf editor showing networking options with inline documentation](images/ezconf/network-manager.png)
+![ezconf editor showing networking options with inline documentation](../images/ezconf/network-manager.png)
 
 ## Why JSON for a NixOS config?
 
@@ -14,17 +14,17 @@ The trade-off is that pure JSON can't express Nix-specific values like package r
 
 NixOS has thousands of options, many of which use dynamic keys — `users.users.<name>.packages`, `services.<name>.enable`, and so on. Autocomplete options and documentation are automatically generated at first service start and can be updated manually within the GUI. When you type `users.users.` into the add-field input, the app detects the wildcard boundary and suggests your existing usernames as continuations.
 
-![Package autocomplete searching for firefox](images/ezconf/packages.png)
+![Package autocomplete searching for firefox](../images/ezconf/packages.png)
 
 The app also supports importing an existing `configuration.nix` file, which is useful when migrating to ezconf from a hand-written config. The frontend includes a small custom Nix parser that converts the file into the JSON representation. It handles the common cases well: attribute sets, lists, strings (including indented strings), booleans, `with pkgs; [...]` package lists, and dotted key paths. The limitation is that it's a data-oriented parser, not a full Nix evaluator — anything beyond plain data, like `if/then/else`, `let` bindings, `import`, or function calls, is not supported. That kind of logic needs to be handled outside the `configuration.json`, in a separate Nix file.
 
-![The import dialog showing a Nix expression being converted to JSON](images/ezconf/import.png)
+![The import dialog showing a Nix expression being converted to JSON](../images/ezconf/import.png)
 
 ## Configured like any other service
 
 The quick-access buttons visible in the toolbar — things like running `nixos-rebuild switch` or listing generations — are not hardcoded. They're defined in the NixOS configuration itself, under `services.ezconf`, just like you'd configure any other service. This means the buttons, their labels, and the commands they run are all part of your system config and tracked in version control alongside everything else.
 
-![Full app view showing the sidebar, editor, and integrated terminal](images/ezconf/settings.png)
+![Full app view showing the sidebar, editor, and integrated terminal](../images/ezconf/settings.png)
 
 ## Architecture
 

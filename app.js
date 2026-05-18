@@ -50,7 +50,7 @@ function parseMarkdown(text) {
 
   function inline(s) {
     return stashPop(s
-      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<a href="$2"><img alt="$1" src="$2"></a>')
+      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt, src) => { const s = src.replace(/^\.\.\//, ''); return `<a href="${s}"><img alt="${alt}" src="${s}"></a>`; })
       .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
       .replace(/`([^`]+)`/g, (_, c) => `<code>${escape(c)}</code>`)
       .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
