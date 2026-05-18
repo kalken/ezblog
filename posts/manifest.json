@@ -2,7 +2,8 @@
   {
     "slug": "ezconf",
     "title": "ezconf — a GUI for NixOS configuration",
-    "date": "2026-05-18"
+    "date": "2026-05-18",
+    "link": "#ezconf"
   },
   {
     "slug": "hello-world",
