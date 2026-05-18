@@ -1,17 +1,12 @@
 [
   {
-    "slug": "ezconfweb",
-    "title": "ezconfweb — a GUI for NixOS configuration",
-    "date": "2026-05-11"
+    "slug": "ezconf",
+    "title": "ezconf — a GUI for NixOS configuration",
+    "date": "2026-05-18"
   },
   {
     "slug": "hello-world",
     "title": "Hello, World",
     "date": "2026-05-09"
-  },
-  {
-    "slug": "markdown-guide",
-    "title": "Markdown Formatting Guide",
-    "date": "2026-05-08"
   }
 ]
