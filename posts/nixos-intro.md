@@ -1,4 +1,4 @@
-I have used NixOS for about two years, after about 20 years on Debian. It is the first time I have really seen a benefit in changing distribution. NixOS is different, but different in a good way.
+I have used NixOS for about two years, after 20+ years on Debian. It is the first time I have really seen a benefit in changing distribution. NixOS is different, but different in a good way.
 
 NixOS is a Linux distribution where the whole system, from the bootloader to the services and installed programs, is described in configuration files. This is a short tour of what that means, what the files in `/etc/nixos` do, and the easiest way to live with it.
 
