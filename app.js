@@ -247,6 +247,34 @@ function route() {
   }
 }
 
+// A click on a picture in a post shows it larger over the page, not as a page of its own.
+// Cmd/Ctrl/Shift-click still follows the link, to open the file in a new tab or window.
+function closeLightbox() {
+  const box = document.getElementById('lightbox');
+  if (box) box.remove();
+  document.documentElement.style.overflow = '';
+}
+
+contentEl.addEventListener('click', e => {
+  const img = e.target.closest('.post-body a > img');
+  if (!img || e.metaKey || e.ctrlKey || e.shiftKey) return;
+  e.preventDefault();
+  closeLightbox();
+  const box = document.createElement('div');
+  box.id = 'lightbox';
+  const big = document.createElement('img');
+  big.src = img.src;
+  big.alt = img.alt;
+  box.appendChild(big);
+  box.addEventListener('click', closeLightbox);
+  document.body.appendChild(box);
+  document.documentElement.style.overflow = 'hidden';   // the page stays where it is behind the picture
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox();
+});
+
 async function init() {
   try {
     manifest = await loadManifest();

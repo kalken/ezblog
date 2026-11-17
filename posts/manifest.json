@@ -1,7 +1,18 @@
 [
   {
+    "slug": "eznix",
+    "title": "eznix — change a Nix system in your browser",
+    "date": "2026-11-17"
+  },
+  {
     "slug": "nixos-intro",
     "title": "NixOS in a nutshell",
     "date": "2026-11-17"
+  },
+  {
+    "slug": "ezconf",
+    "title": "ezconf — a GUI for NixOS configuration",
+    "date": "2026-05-18",
+    "link": "#ezconf"
   }
 ]
