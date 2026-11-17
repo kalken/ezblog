@@ -1,6 +1,6 @@
 I have used NixOS for about two years, after 20+ years on Debian. It is the first time I have really seen a benefit in changing distribution. NixOS is different, but different in a good way.
 
-NixOS is a Linux distribution where the whole system, from the bootloader to the services and installed programs, is described in configuration files. This is a short tour of what that means, what the files in `/etc/nixos` do, and the easiest way to live with it.
+NixOS is a Linux distribution where the whole system, from the bootloader to the services and installed programs, is described in configuration files. This is a short tour of what that means, what the files in `/etc/nixos` do, and an easy way to use it.
 
 ## Why NixOS
 
@@ -234,6 +234,6 @@ nix.gc = {
 };
 ```
 
-## The easiest way to use it
+## An easy way to use it
 
 Keep the **system** declarative and don't mix it with your personal settings. Put what the machine needs (services, drivers, system packages) in the NixOS configuration, and treat your home folder the way you would on any other system: dotfiles in git, or just a backup of the folder. That way a rebuild or a reinstall never has to know about your editor settings, and you don't have to learn everything about Nix before the machine is useful.
