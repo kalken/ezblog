@@ -44,7 +44,7 @@ The editor is built to be hard to break things with:
 
 ## A terminal and buttons you define
 
-Rebuilding happens in a real terminal in the page. The buttons above it type commands into it, and they are not hardcoded. They are defined in the configuration itself, under `services.eznix.buttons`, like any other service setting, so they are tracked in git with everything else.
+Rebuilding happens in a real terminal in the page. The buttons above it type commands into it, and they are not hardcoded. They are defined in the configuration itself, under `services.eznix.buttons`, like any other service setting, so they can be tracked by git.
 
 ![The buttons are settings like any other: a label and a command each, and the terminal underneath runs them](../images/eznix/eznix.png)
 
