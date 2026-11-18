@@ -1,8 +1,12 @@
-Nix is powerful, but configuring a system with it can be a barrier: a deeply nested `.nix` file with thousands of possible options, unfamiliar syntax, and no built-in UI. [eznix](https://github.com/kalken/eznix) is a small web app that turns that into a browsable, searchable, autocompleting editor in your browser, with a terminal beside it for rebuilding. It replaces my earlier project, ezconf, and it works on NixOS, on a Mac (nix-darwin) and on other Linux (home-manager). There is no build step and no framework: just Python and a browser.
+Nix has a steep learning curve. The language, the thousands of options and the way a system is put together all take time to learn, and many people give up before they see what makes it good. This is an attempt to make Nix easier and more approachable.
+
+[eznix](https://github.com/kalken/eznix) lets you change the settings of a Nix system in your browser instead of editing files by hand. Open the page, find the option you want, change it and press Activate: a real terminal beside the editor does the rebuild. It is the successor to my earlier project, ezconf, and it works on NixOS, on a Mac with nix-darwin and on other Linux with home-manager. It is a simple and small program, made to run on anything from powerful workstations and servers to single board computers.
 
 ## What you work with
 
 The editor shows your configuration as tabs, one for each file, with sections you can fold, switches for booleans, lists of items and chips for packages. Settings are saved as small JSON files in a folder inside your flake, and one line in your configuration pulls them in; your own `.nix` files keep working beside them.
+
+You can move between Nix and JSON whenever you want. In the editor, right-click a section or option to convert it to a Nix expression, and back again. Copy puts it on the clipboard as text to paste into Import on another computer, and Copy as Nix puts it there as Nix. Import also reads Nix, so you can paste in a whole `configuration.nix` and it becomes JSON.
 
 ![The nix tab with a tooltip explaining an option, and Autocomplete generating the suggestions in the terminal](../images/eznix/nix.png)
 
