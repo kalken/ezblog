@@ -228,6 +228,7 @@ async function loadPost(slug) {
       <div id="giscus-container"></div>
     `;
     document.title = post.title;
+    window.scrollTo(0, 0);   // a new post starts at its top, not where the last one was left
     loadGiscus();
   } catch (e) {
     contentEl.innerHTML = `<p id="error">Failed to load post: ${e.message}</p>`;

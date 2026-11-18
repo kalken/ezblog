@@ -68,7 +68,7 @@ Then turn it on like any other service, in a few lines:
 ```nix
 services.eznix = {
   enable = true;
-  users  = [ "alice" ];
+  users  = [ "alice" ];   # your user name
 };
 ```
 
@@ -116,7 +116,7 @@ If you have ideas for how it could be better, I'd love to hear them.
 
 Because eznix has a fully functional terminal, nothing stops you from talking to the AI overlords to sort things out for you. Start an AI tool in the terminal, tell it what you want changed, and it works on the same configuration files you see in the editor, which then show up in the page by themselves. A button can start it for you, like the Claude button in the screenshots. You still look at the changes and press Activate yourself... if you want to...
 
-If you are even more lazy, you can of course install something like [Handy](https://github.com/cjpais/Handy) to fill the terminal with the sound of your voice, and have the agent rebuild the system for you too.
+If you are even more lazy, you can of course install something like [Handy](https://github.com/cjpais/Handy) to fill the terminal with the sound of your voice, and have the agent rebuild the system for you too 🍺.
 
 ![Claude Code running in a terminal tab beside the editor](../images/eznix/claude.png)
 

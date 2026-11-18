@@ -17,7 +17,7 @@ NixOS and LLMs are a match made in heaven. Configuring a computer, or keeping it
 
 ## What is in nixpkgs
 
-Nixpkgs is one big repository with two kinds of things in it.
+[Nixpkgs](https://github.com/NixOS/nixpkgs) is one big git repository, with two kinds of things in it.
 
 **Packages** are the programs themselves: `firefox`, `git`, `vim` and tens of thousands more.
 
