@@ -234,6 +234,28 @@ nix.gc = {
 };
 ```
 
+## Automatic upgrades
+
+NixOS can upgrade itself on a schedule:
+
+```nix
+system.autoUpgrade = {
+  enable = true;
+  flake = "/etc/nixos";
+  dates = "05:00";
+  randomizedDelaySec = "45min";
+};
+
+# update flake.lock first, so there is something new to build
+systemd.services.nixos-upgrade.preStart = "${pkgs.nix}/bin/nix flake update --flake /etc/nixos";
+```
+
+Each night it rebuilds the system from your flake and switches to the result. With a flake it builds exactly what your `flake.lock` says, so on its own it would never get anything new. The `preStart` line runs `nix flake update` just before, which is what makes it an upgrade. `randomizedDelaySec` spreads the start over some time, so a number of machines do not all hit the servers at the same minute.
+
+On a stable release like `nixos-26.05` the updates are fixes, not new features, so it is a quiet thing to leave on. Note that the lock file is changed on the machine itself: if the flake is in git, the new `flake.lock` is left uncommitted there, and you commit it when you next work on the configuration.
+
+If an upgrade ever breaks something, the previous generation is still in the boot menu. That is what makes it safe to let the machine do this on its own, as long as garbage collection has not removed it.
+
 ## An easy way to use it
 
 Keep the **system** declarative and don't mix it with your personal settings. Put what the machine needs (services, drivers, system packages) in the NixOS configuration, and treat your home folder the way you would on any other system: dotfiles in git, or just a backup of the folder. That is why I don't use home-manager. A rebuild or a reinstall never has to know about your personal settings, and the machine is useful long before you have learned everything about Nix.
