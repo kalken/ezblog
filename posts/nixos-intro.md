@@ -236,4 +236,4 @@ nix.gc = {
 
 ## An easy way to use it
 
-Keep the **system** declarative and don't mix it with your personal settings. Put what the machine needs (services, drivers, system packages) in the NixOS configuration, and treat your home folder the way you would on any other system: dotfiles in git, or just a backup of the folder. I don't use home-manager for this: it would put your personal settings back into the configuration, which is what this advice is about. That way a rebuild or a reinstall never has to know about your editor settings, and you don't have to learn everything about Nix before the machine is useful.
+Keep the **system** declarative and don't mix it with your personal settings. Put what the machine needs (services, drivers, system packages) in the NixOS configuration, and treat your home folder the way you would on any other system: dotfiles in git, or just a backup of the folder. That is why I don't use home-manager. A rebuild or a reinstall never has to know about your personal settings, and the machine is useful long before you have learned everything about Nix.
