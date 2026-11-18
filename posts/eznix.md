@@ -52,7 +52,7 @@ Rebuilding happens in a real terminal in the page. The buttons above it type com
 
 Nothing in eznix runs as root. A rebuild goes through `sudo` in that terminal, which asks for your password like it would anywhere else.
 
-## Configured like any other service
+## Configured like a service
 
 eznix is a NixOS module, a nix-darwin module and a home-manager module. First add it to your flake, as an input and in the modules of your system:
 
